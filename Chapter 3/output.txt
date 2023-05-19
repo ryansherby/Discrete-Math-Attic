@@ -1,0 +1,204 @@
+X: {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20}
+Y: {3,5,15}
+
+For all n in X, there is some m in Y where n * m >= 15
+
+X: n is 1
+   Y: m is 3 and is invalid.
+   Y: m is 5 and is invalid.
+   Y: m is 15 and is valid.
+X: n is 2
+   Y: m is 3 and is invalid.
+   Y: m is 5 and is invalid.
+   Y: m is 15 and is valid.
+X: n is 3
+   Y: m is 3 and is invalid.
+   Y: m is 5 and is valid.
+X: n is 4
+   Y: m is 3 and is invalid.
+   Y: m is 5 and is valid.
+X: n is 5
+   Y: m is 3 and is valid.
+X: n is 6
+   Y: m is 3 and is valid.
+X: n is 7
+   Y: m is 3 and is valid.
+X: n is 8
+   Y: m is 3 and is valid.
+X: n is 9
+   Y: m is 3 and is valid.
+X: n is 10
+   Y: m is 3 and is valid.
+X: n is 11
+   Y: m is 3 and is valid.
+X: n is 12
+   Y: m is 3 and is valid.
+X: n is 13
+   Y: m is 3 and is valid.
+X: n is 14
+   Y: m is 3 and is valid.
+X: n is 15
+   Y: m is 3 and is valid.
+X: n is 16
+   Y: m is 3 and is valid.
+X: n is 17
+   Y: m is 3 and is valid.
+X: n is 18
+   Y: m is 3 and is valid.
+X: n is 19
+   Y: m is 3 and is valid.
+X: n is 20
+   Y: m is 3 and is valid.
+
+This statement is VALID.
+
+
+
+
+X: {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20}
+Y: {3,5,15}
+
+For some n in X, there is all m in Y where n/m is an integer
+
+X: n is 1
+   Y: m is 3 and is invalid.
+X: n is 2
+   Y: m is 3 and is invalid.
+X: n is 3
+   Y: m is 3 and is valid.
+   Y: m is 5 and is invalid.
+X: n is 4
+   Y: m is 3 and is invalid.
+X: n is 5
+   Y: m is 3 and is invalid.
+X: n is 6
+   Y: m is 3 and is valid.
+   Y: m is 5 and is invalid.
+X: n is 7
+   Y: m is 3 and is invalid.
+X: n is 8
+   Y: m is 3 and is invalid.
+X: n is 9
+   Y: m is 3 and is valid.
+   Y: m is 5 and is invalid.
+X: n is 10
+   Y: m is 3 and is invalid.
+X: n is 11
+   Y: m is 3 and is invalid.
+X: n is 12
+   Y: m is 3 and is valid.
+   Y: m is 5 and is invalid.
+X: n is 13
+   Y: m is 3 and is invalid.
+X: n is 14
+   Y: m is 3 and is invalid.
+X: n is 15
+   Y: m is 3 and is valid.
+   Y: m is 5 and is valid.
+   Y: m is 15 and is valid.
+
+This statement is VALID.
+
+
+
+X: {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20}
+Y: {3,5,15}
+
+For all n in X, there is all m in Y where m*n >= 2
+
+X: n is 1
+   Y: m is 3 and is valid.
+   Y: m is 5 and is valid.
+   Y: m is 15 and is valid.
+X: n is 2
+   Y: m is 3 and is valid.
+   Y: m is 5 and is valid.
+   Y: m is 15 and is valid.
+X: n is 3
+   Y: m is 3 and is valid.
+   Y: m is 5 and is valid.
+   Y: m is 15 and is valid.
+X: n is 4
+   Y: m is 3 and is valid.
+   Y: m is 5 and is valid.
+   Y: m is 15 and is valid.
+X: n is 5
+   Y: m is 3 and is valid.
+   Y: m is 5 and is valid.
+   Y: m is 15 and is valid.
+X: n is 6
+   Y: m is 3 and is valid.
+   Y: m is 5 and is valid.
+   Y: m is 15 and is valid.
+X: n is 7
+   Y: m is 3 and is valid.
+   Y: m is 5 and is valid.
+   Y: m is 15 and is valid.
+X: n is 8
+   Y: m is 3 and is valid.
+   Y: m is 5 and is valid.
+   Y: m is 15 and is valid.
+X: n is 9
+   Y: m is 3 and is valid.
+   Y: m is 5 and is valid.
+   Y: m is 15 and is valid.
+X: n is 10
+   Y: m is 3 and is valid.
+   Y: m is 5 and is valid.
+   Y: m is 15 and is valid.
+X: n is 11
+   Y: m is 3 and is valid.
+   Y: m is 5 and is valid.
+   Y: m is 15 and is valid.
+X: n is 12
+   Y: m is 3 and is valid.
+   Y: m is 5 and is valid.
+   Y: m is 15 and is valid.
+X: n is 13
+   Y: m is 3 and is valid.
+   Y: m is 5 and is valid.
+   Y: m is 15 and is valid.
+X: n is 14
+   Y: m is 3 and is valid.
+   Y: m is 5 and is valid.
+   Y: m is 15 and is valid.
+X: n is 15
+   Y: m is 3 and is valid.
+   Y: m is 5 and is valid.
+   Y: m is 15 and is valid.
+X: n is 16
+   Y: m is 3 and is valid.
+   Y: m is 5 and is valid.
+   Y: m is 15 and is valid.
+X: n is 17
+   Y: m is 3 and is valid.
+   Y: m is 5 and is valid.
+   Y: m is 15 and is valid.
+X: n is 18
+   Y: m is 3 and is valid.
+   Y: m is 5 and is valid.
+   Y: m is 15 and is valid.
+X: n is 19
+   Y: m is 3 and is valid.
+   Y: m is 5 and is valid.
+   Y: m is 15 and is valid.
+X: n is 20
+   Y: m is 3 and is valid.
+   Y: m is 5 and is valid.
+   Y: m is 15 and is valid.
+
+This statement is VALID.
+
+
+
+X: {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20}
+Y: {3,5,15}
+
+For some n in X, there is some m in Y where m*n >= 10
+
+X: n is 1
+   Y: m is 3 and is invalid.
+   Y: m is 5 and is invalid.
+   Y: m is 15 and is valid.
+
+This statement is VALID.
