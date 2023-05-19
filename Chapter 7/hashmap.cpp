@@ -3,44 +3,31 @@
 #include <sstream>
 #include <cmath>
 #include <cstdint>
-#include <ctime>
 
 using namespace std;
 
-class Student{
 
+class Hash{
     private:
-        string _fname,_lname;
+        struct Student{
+            string _fname,_lname;
+            Student(string fname="", string lname=""):_fname(fname),_lname(lname){}
 
+            string get_name(){
+                ostringstream os;
+                os<<_fname<<" "<<_lname;
+                return os.str();
+            };
+        };
+        vector<Student> _map;
+        size_t _n;
     public:
 
-        Student(string fname="", string lname=""):_fname(fname),_lname(lname){}
-
-        string to_string(){
-            ostringstream os;
-            os<<_fname<<" "<<_lname;
-            return os.str();
+        
+        static int generate_9_digit_id(){
+            return rand() % 900000000 + 100000000;
         };
 
-
-        static string rotate_vowels(string s){
-            char low[5]={'a','e','i','o','u'};
-            char upp[5]={'A','E','I','O','U'};
-
-            for(size_t i=0;i<s.length();i++){
-                for(size_t j=0;j<5;j++){
-                    if(s[i]==low[j]){
-                        s[i]=low[(j+1)%5];
-                        break;
-                    }
-                    if(s[i]==upp[j]){
-                        s[i]=upp[(j+1)%5];
-                        break;
-                    }
-                }    
-            }
-            return s;
-        }
 
         static Student generate_student(){
             string v = "aeiou";
@@ -59,156 +46,34 @@ class Student{
                     r_num+=1;
                 }
             }
-            return Student(name,rotate_vowels(name));
-        };
-
-
-};
+            return Student(name,name);
+        }
 
 
 
-class HashMap{
-    private:
 
-        struct Pair{
-            Student _student;
-            int _id;
-            bool _occupied;
-
-            Pair(const Student& student=Student(), int id=0,bool occupied=false): _student(student),_id(id),_occupied(occupied){}
-
-            string to_string(){
-                ostringstream os;
-
-                os<<"{"<<_id<<" : "<<_student.to_string()<<"}"<<endl;
-
-                return os.str();
-            }
-
-        };
-
-        vector<Pair> _map;
-        size_t _n;
-        size_t _size;
-
-    public:
-
-        HashMap(size_t n=1){
-            _size=0;
-
+        Hash(size_t n=1){
             _n=(2*n - (n/2));
             _map.resize(_n);
         };
 
-    
-        int hash(const int id){
-            return id % _n;
-        }
 
-        void insert(const int& id, Student& student){
-            int index = hash(id);
-            int increment=0;
-
-            // Linear probing to resolve collisions
-            while (_map[index]._occupied){
-                if (_map[index]._id==id){
-                    _map[index]._student=student; // Replaces with updated value
-                    return;
-                }
-                increment++;
-                index = hash(id+increment);
+        // Note that the assigned ID is UNCHANGED, so this function is not technically well-defined
+        // If the _map is cleared, a the same ID could result in a different location (Each domain not mapped to single co-domain)
+        // A solution could be to return the id to caller, but we don't want to modify it without permission
+        void set_object(int const id, Student student){
+            int hash_value = id % _n;
+            if (_map[hash_value].get_name()!=""){
+                _map[hash_value]=student;
             }
-
-            // Exits where no collision
-            _map[index]=Pair(student,id,true);
-            _size++;
-
+            else{
+                set_object(id+1,student);  // Increment ID until available spot is found
+            }
         };
 
 
-        void remove(const int& id){
-            int index = hash(id);
-            int increment=0;
-
-            // Linear probing to find the key
-            while (_map[index]._occupied) {
-                if (_map[index]._id==id) {
-                    _map[index]=Pair();
-                    _size--;
-                    return;
-                }
-                increment++;
-                index = hash(id+increment);
-            }
+        Student get_object(int const id) const {
+            return _map
         }
-
-
-        Student get(const int& id) {
-            int index = hash(id);
-            int increment=0;
-
-            // Linear probing to find the key
-            while (_map[index]._occupied) {
-                if (_map[index]._id == id) {
-                    return _map[index]._student;
-                }
-                increment++;
-                index = hash(id+increment);
-            }
-            return Student();
-        }
-
-
-        string to_string(){
-            ostringstream os;
-            int iter=0;
-            int i=0;
-
-            os<<"Visual Representation of Known Hashmap Values"<<endl<<endl;
-            while(iter<_size && iter<25){
-                if(_map[i]._occupied){
-                    os<<_map[i].to_string();
-                    iter++;
-                }
-                i++;
-            }
-            return os.str();
-        }
-
-
-        
-        static int generate_6_digit_id(){
-            return rand() % 90000 + 100000;
-        };
 
 };
-
-
-
-int main(){
-    srand(static_cast<unsigned>(time(nullptr)));
-
-    HashMap hashmap(25);
-
-    for(int i = 0; i<24;i++){
-        Student student=Student::generate_student();
-        int id=HashMap::generate_6_digit_id();
-        hashmap.insert(id,student);
-    }
-
-    Student student("John","Doe");
-
-    int id = 101010;
-
-    hashmap.insert(id,student);
-
-    cout<<hashmap.to_string()<<endl<<endl;
-
-    cout<<hashmap.get(id).to_string();
-
-    hashmap.remove(101010);
-
-    cout<<hashmap.get(id).to_string();
-
-}
-
