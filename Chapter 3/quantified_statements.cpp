@@ -48,7 +48,7 @@ int main(int argc, char **argv){
             cout<<"X: n is "<<x[i]<<endl;
             for(size_t j=0;j<y.size();j++){
                 cout<<"   Y: m is "<<y[j];
-                if(x[i]*y[j]>=15){
+                if(x[i]*y[j] >= 15){
                     cout<<" and is valid."<<endl;
                     is_valid=true;
                     break;
